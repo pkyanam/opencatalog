@@ -1,74 +1,87 @@
 /*
- * opencatalog.sh — Submission API endpoint.
+ * opencatalog.sh — Public submission API endpoint.
  *
  * POST /api/submit
  *
- * Accepts a candidate entry (JSON body matching the candidate schema, minus
- * the submitter block which is filled from request context). Writes the
- * candidate to staging/ as a JSON file.
+ * Accepts a candidate entry from anyone — human, AI agent, scraper, or
+ * community member. No bearer token required. Submissions are stored
+ * in Vercel KV as "pending" entries, then synced to git by a scheduled
+ * GitHub Action that creates PRs for review.
  *
- * This endpoint is NOT statically generated — it's a runtime endpoint that
- * requires a server. On Vercel, this runs as a serverless function.
+ * Rate limiting: IP-based, stored in KV. 10 submissions per IP per hour.
  *
- * Authentication:
- *   - Bearer token via SUBMIT_TOKEN env var (if set)
- *   - If SUBMIT_TOKEN is not set, submissions are rejected in production
- *     and allowed only in development
+ * Flow:
+ *   POST /api/submit → validate → store in KV (pending:<id>)
+ *                      → return submission ID
  *
- * Rate limiting:
- *   - Relies on Vercel's edge rate limiting in production
- *   - No in-app rate limiting (keep it simple for now)
+ *   GitHub Action (hourly) → pull pending entries from KV
+ *                          → write to staging/ as candidate files
+ *                          → create PR for review
+ *                          → mark entries as "synced" in KV
  *
- * Response:
- *   201 Created — { ok: true, slug, stagingPath }
- *   400 Bad Request — { ok: false, errors: [...] }
- *   401 Unauthorized — { ok: false, error: "..." }
- *   409 Conflict — { ok: false, error: "entry already exists" }
- *   500 Internal Error — { ok: false, error: "..." }
+ * Environment (auto-provisioned by Vercel when you create a KV store):
+ *   KV_REST_API_URL — Vercel KV REST endpoint
+ *   KV_REST_API_TOKEN — Vercel KV auth token
+ *
+ * If KV is not configured, the endpoint returns 503 with instructions.
  */
 
-import { writeFile, mkdir, stat } from "node:fs/promises";
-import path from "node:path";
-import { Candidate, candidateFilePath, type Candidate as CandidateType } from "@/lib/candidate-schema";
+import { kv } from "@vercel/kv";
+import { Candidate, type Candidate as CandidateType } from "@/lib/candidate-schema";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 10;
 
-function authenticate(request: Request): { ok: boolean; error?: string; source?: string; identity?: string } {
-  const submitToken = process.env.SUBMIT_TOKEN;
-  const isProduction = process.env.NODE_ENV === "production";
+const RATE_LIMIT_PER_HOUR = 10;
 
-  if (!submitToken) {
-    if (isProduction) {
-      return { ok: false, error: "SUBMIT_TOKEN not configured — submissions disabled in production" };
-    }
-    // Dev mode: allow without token
-    return { ok: true, source: "manual", identity: "dev-mode" };
-  }
+// ─── Rate limiting ─────────────────────────────────────────────────────────
 
-  const auth = request.headers.get("authorization");
-  if (!auth || !auth.startsWith("Bearer ")) {
-    return { ok: false, error: "Missing or invalid Authorization header (expected: Bearer <token>)" };
-  }
-
-  const token = auth.slice(7);
-  if (token !== submitToken) {
-    return { ok: false, error: "Invalid token" };
-  }
-
-  // Determine source from header or default
-  const sourceHeader = request.headers.get("x-submit-source");
-  const identityHeader = request.headers.get("x-submit-identity");
-  const source = (sourceHeader as CandidateType["submitter"]["source"]) || "ai-agent";
-  const identity = identityHeader || "api";
-
-  return { ok: true, source, identity };
+function getClientIp(request: Request): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0]?.trim() ?? "unknown";
+  const realIp = request.headers.get("x-real-ip");
+  if (realIp) return realIp;
+  return "unknown";
 }
 
+async function checkRateLimit(ip: string): Promise<{ allowed: boolean; remaining: number }> {
+  const key = `ratelimit:submit:${ip}`;
+  const count = await kv.incr(key);
+  if (count === 1) {
+    await kv.expire(key, 3600); // 1 hour window
+  }
+  return {
+    allowed: count <= RATE_LIMIT_PER_HOUR,
+    remaining: Math.max(0, RATE_LIMIT_PER_HOUR - count),
+  };
+}
+
+// ─── POST: submit a candidate ──────────────────────────────────────────────
+
 export async function POST(request: Request): Promise<Response> {
-  // Authenticate
-  const auth = authenticate(request);
-  if (!auth.ok) {
-    return Response.json({ ok: false, error: auth.error }, { status: 401 });
+  // Check KV is configured
+  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+    return Response.json(
+      {
+        ok: false,
+        error: "KV not configured. Create a Vercel KV store and link it to this project.",
+      },
+      { status: 503 },
+    );
+  }
+
+  // Rate limit
+  const ip = getClientIp(request);
+  const rateLimit = await checkRateLimit(ip);
+  if (!rateLimit.allowed) {
+    return Response.json(
+      {
+        ok: false,
+        error: `Rate limit exceeded. ${RATE_LIMIT_PER_HOUR} submissions per hour. Try again later.`,
+        remaining: 0,
+      },
+      { status: 429, headers: { "Retry-After": "3600" } },
+    );
   }
 
   // Parse body
@@ -79,12 +92,18 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json({ ok: false, error: "Invalid JSON body" }, { status: 400 });
   }
 
+  // Determine submitter info from headers (optional, no auth required)
+  const sourceHeader = request.headers.get("x-submit-source");
+  const identityHeader = request.headers.get("x-submit-identity");
+  const source = (sourceHeader as CandidateType["submitter"]["source"]) || "community-pr";
+  const identity = identityHeader || `ip:${ip}`;
+
   // Add submitter block
   const candidateWithSubmitter = {
     ...(body as Record<string, unknown>),
     submitter: {
-      source: auth.source,
-      identity: auth.identity,
+      source,
+      identity,
       submittedAt: new Date().toISOString(),
     },
   };
@@ -106,60 +125,63 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   const candidate = result.data;
-  const stagingPath = candidateFilePath(candidate);
-  const fullPath = path.join(process.cwd(), stagingPath);
 
-  // Check if already exists
-  try {
-    await stat(fullPath);
+  // Check for duplicate slug in pending queue
+  const existing = await kv.get(`pending:slug:${candidate.slug}`);
+  if (existing) {
     return Response.json(
-      { ok: false, error: `Entry already exists: ${stagingPath}` },
+      { ok: false, error: `A pending submission already exists for slug "${candidate.slug}"` },
       { status: 409 },
     );
-  } catch {
-    // Good — doesn't exist
   }
 
-  // Write to staging
-  try {
-    await mkdir(path.dirname(fullPath), { recursive: true });
-    await writeFile(fullPath, `${JSON.stringify(candidate, null, 2)}\n`);
-  } catch (err) {
-    return Response.json(
-      { ok: false, error: `Failed to write staging file: ${err}` },
-      { status: 500 },
-    );
-  }
+  // Store in KV
+  const submissionId = `sub_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  const kvKey = `pending:${submissionId}`;
+
+  await kv.set(kvKey, JSON.stringify(candidate));
+  await kv.set(`pending:slug:${candidate.slug}`, submissionId);
+  // Add to the pending set for the sync script to enumerate
+  await kv.sadd("pending:queue", submissionId);
 
   return Response.json(
     {
       ok: true,
+      submissionId,
       slug: candidate.slug,
       kind: candidate.kind,
-      stagingPath,
-      message: "Candidate submitted to staging. Run enrich + promote to publish.",
+      message: "Submission received and queued for review. It will appear as a GitHub PR after the next sync.",
+      rateLimit: { remaining: rateLimit.remaining - 1, limit: RATE_LIMIT_PER_HOUR },
     },
     { status: 201 },
   );
 }
 
-// GET endpoint returns API docs
+// ─── GET: API docs ─────────────────────────────────────────────────────────
+
 export async function GET(): Promise<Response> {
   return Response.json({
     endpoint: "POST /api/submit",
-    description: "Submit a candidate entry to the opencatalog.sh staging queue",
-    auth: "Bearer token via SUBMIT_TOKEN env var (required in production)",
+    description: "Submit a candidate entry to opencatalog.sh. Public, no auth required.",
+    rateLimit: `${RATE_LIMIT_PER_HOUR} submissions per IP per hour`,
     headers: {
-      "Authorization": "Bearer <token>",
-      "X-Submit-Source": "manual | ai-agent | scraper | community-pr",
-      "X-Submit-Identity": "string identifying the submitter",
+      "Content-Type": "application/json",
+      "X-Submit-Source": "optional: manual | ai-agent | scraper | community-pr",
+      "X-Submit-Identity": "optional: your name or agent identifier",
     },
-    body: "Candidate JSON (see /api.schema.json for the full schema, or src/lib/candidate-schema.ts)",
+    body: {
+      kind: "required: alternative | paid-product | category | license",
+      slug: "required: URL-friendly identifier",
+      name: "required: display name",
+      description: "required: what this is",
+      "...": "see src/lib/candidate-schema.ts for full schema",
+    },
     response: {
-      "201": "Candidate created in staging/",
+      "201": "Submission queued",
       "400": "Validation error",
-      "401": "Authentication failed",
-      "409": "Entry already exists",
+      "429": "Rate limited",
+      "503": "KV not configured",
     },
+    flow: "POST → KV queue → GitHub Action syncs to staging/ → PR for review → enrich → promote → curated/",
   });
 }

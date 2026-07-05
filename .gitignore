@@ -1,6 +1,10 @@
 # Reference project — studied for design, never tracked or shipped.
 _reference/
 
+# Planning docs — internal, not for the public repo
+DEFINITIONS.md
+PLAN.md
+
 # Dependencies
 node_modules/
 
