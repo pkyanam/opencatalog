@@ -1,0 +1,56 @@
+{
+  "kind": "alternative",
+  "slug": "penpot",
+  "name": "Penpot",
+  "tagline": "Open-source collaborative design platform",
+  "description": "Open-source browser-based UI/UX design and prototyping tool with strong dev handoff, self-hosting, and open web standards (SVG/CSS/HTML).",
+  "categories": [
+    "ui-design"
+  ],
+  "replaces": [
+    "figma"
+  ],
+  "licenseSlug": "mpl-2.0",
+  "deployment": [
+    "self-hosted",
+    "web-deployable"
+  ],
+  "installPaths": [
+    {
+      "platform": "docker",
+      "kind": "container",
+      "command": "docker compose up -d",
+      "url": "https://penpot.app/self-host",
+      "note": "Official Docker setup",
+      "basis": "cited"
+    }
+  ],
+  "maturity": [],
+  "knownGaps": [
+    {
+      "slug": "plugin-ecosystem",
+      "label": "Smaller plugin ecosystem",
+      "description": "Growing but smaller than Figma",
+      "severity": "minor",
+      "basis": "cited",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://penpot.app/",
+      "label": "Penpot official",
+      "basis": "cited"
+    },
+    {
+      "url": "https://github.com/penpot/penpot",
+      "label": "GitHub repo",
+      "basis": "cited"
+    }
+  ],
+  "submitter": {
+    "source": "ai-agent",
+    "identity": "grok-opencatalog-contributor",
+    "submittedAt": "2026-07-05T03:49:00.886Z"
+  }
+}
