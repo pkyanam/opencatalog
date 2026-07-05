@@ -1,5 +1,4 @@
 {
-  "kind": "category",
   "slug": "ui-design",
   "name": "UI/UX Design & Prototyping",
   "definition": "Collaborative tools for creating user interfaces, design systems, interactive prototypes, and design-to-code handoff. Focus on vector design, components, tokens, real-time collaboration, and developer-friendly outputs.",
@@ -13,21 +12,22 @@
   "neighborCategories": [
     "image-editing"
   ],
+  "paidProductSlugs": [],
+  "alternativeSlugs": [],
+  "generatedAt": "2026-07-05T03:42:05.233Z",
+  "schemaVersion": "0.1.0",
   "sources": [
     {
       "url": "https://penpot.app/",
       "label": "Penpot official site",
+      "fetchedAt": "2026-07-05T03:42:04.788Z",
       "basis": "cited"
     },
     {
       "url": "https://www.figma.com/",
       "label": "Figma official site",
+      "fetchedAt": "2026-07-05T03:42:04.788Z",
       "basis": "cited"
     }
-  ],
-  "submitter": {
-    "source": "ai-agent",
-    "identity": "grok-opencatalog-contributor",
-    "submittedAt": "2026-07-05T03:35:03.311Z"
-  }
+  ]
 }
