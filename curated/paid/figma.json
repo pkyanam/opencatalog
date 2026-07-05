@@ -1,0 +1,100 @@
+{
+  "slug": "figma",
+  "name": "Figma",
+  "tagline": "Collaborative interface design and prototyping platform",
+  "description": "Figma is the leading browser-based tool for UI/UX design, design systems, interactive prototyping, and developer handoff. It features real-time collaboration, components/variants, variables/tokens, Dev Mode for code inspection, FigJam for whiteboarding, and expanding AI capabilities.",
+  "category": "ui-design",
+  "secondaryCategories": [],
+  "pricingShape": "subscription",
+  "pricingNote": "Free Starter tier with limits. Professional ~$12-16/mo per full seat (annual). Higher for Organization/Enterprise.",
+  "workflows": [
+    {
+      "slug": "vector-ui-design",
+      "label": "Vector UI design & components",
+      "description": "Vector UI design & components"
+    },
+    {
+      "slug": "design-systems-tokens-components",
+      "label": "Design systems & tokens",
+      "description": "Design systems & tokens"
+    },
+    {
+      "slug": "interactive-prototyping",
+      "label": "Interactive prototyping",
+      "description": "Interactive prototyping"
+    },
+    {
+      "slug": "dev-handoff-inspection",
+      "label": "Dev Mode & code inspection",
+      "description": "Dev Mode & code inspection"
+    },
+    {
+      "slug": "real-time-collaboration",
+      "label": "Real-time collaboration",
+      "description": "Real-time collaboration"
+    }
+  ],
+  "exportImport": {
+    "formats": [
+      "SVG",
+      "PNG",
+      "PDF"
+    ],
+    "apis": [
+      "https://www.figma.com/developers/api"
+    ],
+    "note": "Proprietary .fig format creates lock-in.",
+    "basis": "cited",
+    "sources": []
+  },
+  "rankedAlternatives": [
+    {
+      "altSlug": "penpot",
+      "fit": "partial-fit",
+      "note": "",
+      "workflowFit": [
+        {
+          "workflowSlug": "vector-ui-design",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "design-systems-tokens-components",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "interactive-prototyping",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "dev-handoff-inspection",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "real-time-collaboration",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "verified": false,
+  "generatedAt": "2026-07-05T03:49:35.412Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://www.figma.com/",
+      "label": "Figma official",
+      "fetchedAt": "2026-07-05T03:49:34.106Z",
+      "basis": "cited"
+    }
+  ]
+}

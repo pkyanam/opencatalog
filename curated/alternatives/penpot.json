@@ -1,0 +1,89 @@
+{
+  "slug": "penpot",
+  "name": "Penpot",
+  "tagline": "Open-source collaborative design platform",
+  "description": "Open-source browser-based UI/UX design and prototyping tool with strong dev handoff, self-hosting, and open web standards (SVG/CSS/HTML).",
+  "repo": "https://github.com/penpot/penpot",
+  "homepage": "https://penpot.app/",
+  "license": {
+    "slug": "mpl-2.0",
+    "name": "Mozilla Public License v2.0",
+    "osiApproved": true,
+    "basis": "claimed",
+    "sources": [
+      {
+        "url": "https://www.mozilla.org/en-US/MPL/2.0/",
+        "label": "MPL-2.0 full text (Mozilla)",
+        "basis": "cited"
+      },
+      {
+        "url": "https://opensource.org/licenses/MPL-2.0",
+        "label": "OSI-approved license summary",
+        "basis": "cited"
+      }
+    ]
+  },
+  "deployment": [
+    "self-hosted",
+    "web-deployable"
+  ],
+  "platforms": [],
+  "installPaths": [
+    {
+      "kind": "container",
+      "platform": "docker",
+      "command": "docker compose up -d",
+      "url": "https://penpot.app/self-host",
+      "note": "Official Docker setup",
+      "basis": "cited",
+      "sources": []
+    }
+  ],
+  "maturity": [
+    {
+      "kind": "repo-stars",
+      "value": "54985",
+      "probedAt": "2026-07-05T03:49:35.121Z",
+      "stale": false
+    },
+    {
+      "kind": "last-release",
+      "value": "2.16.2",
+      "probedAt": "2026-07-05T03:49:35.121Z",
+      "stale": false
+    }
+  ],
+  "knownGaps": [
+    {
+      "slug": "plugin-ecosystem",
+      "label": "Smaller plugin ecosystem",
+      "description": "Growing but smaller than Figma",
+      "severity": "minor",
+      "basis": "cited",
+      "sources": []
+    }
+  ],
+  "categories": [
+    "ui-design"
+  ],
+  "replaces": [
+    "figma"
+  ],
+  "verified": false,
+  "generatedAt": "2026-07-05T03:49:35.413Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://penpot.app/",
+      "label": "Penpot official",
+      "fetchedAt": "2026-07-05T03:49:34.312Z",
+      "basis": "cited"
+    },
+    {
+      "url": "https://github.com/penpot/penpot",
+      "label": "GitHub repo",
+      "fetchedAt": "2026-07-05T03:49:34.312Z",
+      "basis": "cited"
+    }
+  ]
+}
