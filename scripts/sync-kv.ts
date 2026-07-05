@@ -14,9 +14,9 @@
  *   bun run scripts/sync-kv.ts --dry-run      # show what would be synced
  *   bun run scripts/sync-kv.ts --create-pr    # create a GitHub PR after sync
  *
- * Environment:
- *   UPSTASH_REDIS_REST_URL — Upstash Redis REST endpoint
- *   UPSTASH_REDIS_REST_TOKEN — Upstash Redis auth token
+ * Environment (auto-provisioned by Vercel marketplace):
+ *   KV_REST_API_URL — Upstash Redis REST endpoint
+ *   KV_REST_API_TOKEN — Upstash Redis auth token
  *   GITHUB_TOKEN — for creating PRs (auto-provided by GitHub Actions)
  */
 
@@ -38,10 +38,10 @@ function git(args: string[]): string {
 }
 
 async function main() {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  const url = process.env.KV_REST_API_URL;
+  const token = process.env.KV_REST_API_TOKEN;
   if (!url || !token) {
-    console.error("Redis not configured. Set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN.");
+    console.error("Redis not configured. Set KV_REST_API_URL and KV_REST_API_TOKEN.");
     process.exit(1);
   }
 

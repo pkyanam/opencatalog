@@ -19,9 +19,10 @@
  *                                 → create PR for review
  *                                 → mark entries as "synced" in Redis
  *
- * Environment (provisioned when you create an Upstash Redis store):
- *   UPSTASH_REDIS_REST_URL — Upstash Redis REST endpoint
- *   UPSTASH_REDIS_REST_TOKEN — Upstash Redis auth token
+ * Environment (auto-provisioned by Vercel when you create an Upstash Redis
+ * store via the Storage marketplace):
+ *   KV_REST_API_URL — Upstash Redis REST endpoint
+ *   KV_REST_API_TOKEN — Upstash Redis auth token
  *
  * If Redis is not configured, the endpoint returns 503 with instructions.
  */
@@ -35,8 +36,9 @@ export const maxDuration = 10;
 const RATE_LIMIT_PER_HOUR = 10;
 
 function getRedis(): Redis | null {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  // Vercel marketplace auto-provisions KV_REST_API_URL / KV_REST_API_TOKEN
+  const url = process.env.KV_REST_API_URL;
+  const token = process.env.KV_REST_API_TOKEN;
   if (!url || !token) return null;
   return new Redis({ url, token });
 }
