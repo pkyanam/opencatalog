@@ -64,7 +64,11 @@ function convertPaidProduct(c: PaidProductCandidate): Record<string, unknown> {
     secondaryCategories: c.secondaryCategories,
     pricingShape: c.pricingShape,
     pricingNote: c.pricingNote,
-    workflows: c.workflows,
+    workflows: c.workflows.map((w) => ({
+      slug: w.slug,
+      label: w.label,
+      description: w.label, // candidate schema has no description; use label as fallback
+    })),
     rankedAlternatives: c.rankedAlternativeSlugs.map((altSlug) => ({
       altSlug,
       fit: "partial-fit" as const,

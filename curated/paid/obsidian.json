@@ -1,0 +1,120 @@
+{
+  "slug": "obsidian",
+  "name": "Obsidian",
+  "tagline": "A knowledge base that works on local Markdown files",
+  "description": "Obsidian is a note-taking app that stores notes as local Markdown files. The app itself is free for personal use, but commercial use requires a Catalyst or Commercial license. It supports plugins, themes, and linking between notes to build a personal knowledge graph.",
+  "category": "note-taking",
+  "secondaryCategories": [],
+  "pricingShape": "freemium",
+  "pricingNote": "Free for personal use. Commercial license required for business use (2+ users).",
+  "workflows": [
+    {
+      "slug": "note-creation",
+      "label": "Note creation",
+      "description": "Note creation"
+    },
+    {
+      "slug": "linking",
+      "label": "Note linking and graph view",
+      "description": "Note linking and graph view"
+    },
+    {
+      "slug": "plugins",
+      "label": "Plugin ecosystem",
+      "description": "Plugin ecosystem"
+    },
+    {
+      "slug": "sync",
+      "label": "Cross-device sync",
+      "description": "Cross-device sync"
+    }
+  ],
+  "exportImport": {
+    "formats": [],
+    "apis": [],
+    "note": "",
+    "basis": "claimed",
+    "sources": []
+  },
+  "rankedAlternatives": [
+    {
+      "altSlug": "logseq",
+      "fit": "partial-fit",
+      "note": "",
+      "workflowFit": [
+        {
+          "workflowSlug": "note-creation",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "linking",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "plugins",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "sync",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        }
+      ]
+    },
+    {
+      "altSlug": "appflowy",
+      "fit": "partial-fit",
+      "note": "",
+      "workflowFit": [
+        {
+          "workflowSlug": "note-creation",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "linking",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "plugins",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        },
+        {
+          "workflowSlug": "sync",
+          "status": "unknown",
+          "basis": "claimed",
+          "sources": []
+        }
+      ]
+    }
+  ],
+  "verified": false,
+  "generatedAt": "2026-07-05T01:50:31.629Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://obsidian.md/pricing",
+      "label": "Obsidian pricing page",
+      "fetchedAt": "2026-07-05T01:50:30.194Z",
+      "basis": "cited"
+    },
+    {
+      "url": "https://obsidian.md/license",
+      "label": "Obsidian license terms",
+      "fetchedAt": "2026-07-05T01:50:30.194Z",
+      "basis": "cited"
+    }
+  ]
+}
