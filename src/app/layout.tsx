@@ -3,7 +3,7 @@ import { plexMono, plexSans } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://opencatalog.sh"),
+  metadataBase: new URL("https://www.opencatalog.sh"),
   title: {
     default: "opencatalog.sh — FOSS alternatives to paid software",
     template: "%s · opencatalog.sh",
@@ -55,10 +55,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: "opencatalog.sh",
     description:
       "The map from paid software to serious FOSS alternatives. Every claim grounded, every install path verified, every gap labeled.",
-    url: "https://opencatalog.sh",
+    url: "https://www.opencatalog.sh",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://opencatalog.sh/browse/?q={search_term_string}",
+      target: "https://www.opencatalog.sh/browse/?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };

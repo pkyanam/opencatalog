@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const envelope = await buildApiEnvelope();
-  const base = "https://opencatalog.sh";
+  const base = "https://www.opencatalog.sh";
   const lastModified = new Date();
 
   const routes: MetadataRoute.Sitemap = [
