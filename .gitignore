@@ -6,7 +6,6 @@ DEFINITIONS.md
 PLAN.md
 
 # Local helper scripts — untracked
-scripts/review-pr.sh
 scripts/review-pr.log
 
 # Dependencies
