@@ -1,0 +1,150 @@
+{
+  "slug": "krita",
+  "name": "Krita",
+  "tagline": "Digital painting and illustration with color management",
+  "description": "Krita is a cross-platform digital painting and illustration application. It excels at brush-based painting, has strong color management (including CMYK), and supports HDR. It is the closer match for Photoshop's painting and illustration workflows, less so for photo retouching.",
+  "repo": "https://invent.kde.org/graphics/krita",
+  "homepage": "https://krita.org",
+  "license": {
+    "slug": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "osiApproved": true,
+    "basis": "probed",
+    "sources": [
+      {
+        "url": "https://invent.kde.org/graphics/krita/-/blob/master/COPYING",
+        "label": "COPYING in KDE krita repo",
+        "fetchedAt": "2026-07-04T00:00:00.000Z",
+        "basis": "probed"
+      }
+    ]
+  },
+  "deployment": ["desktop"],
+  "platforms": ["macos", "windows", "linux"],
+  "installPaths": [
+    {
+      "kind": "download",
+      "platform": "macos",
+      "url": "https://krita.org/download/",
+      "note": "DMG from krita.org",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://krita.org/download/",
+          "label": "Krita official downloads",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "macos",
+      "command": "brew install --cask krita",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://formulae.brew.sh/cask/krita",
+          "label": "Homebrew cask: krita",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "linux",
+      "command": "flatpak install flathub org.kde.krita",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://flathub.org/apps/org.kde.krita",
+          "label": "Flathub: org.kde.krita",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "windows",
+      "command": "winget install KDE.Krita",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://winget.run/pkg/KDE/Krita",
+          "label": "winget: KDE.Krita",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    }
+  ],
+  "maturity": [
+    {
+      "kind": "repo-stars",
+      "value": 8200,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://invent.kde.org/graphics/krita"
+    },
+    {
+      "kind": "last-release",
+      "value": "2026-04-10",
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://krita.org/en/item/"
+    },
+    {
+      "kind": "contributor-count",
+      "value": 280,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://invent.kde.org/graphics/krita/-/graphs/master"
+    }
+  ],
+  "knownGaps": [
+    {
+      "slug": "photo-retouching-limited",
+      "label": "Limited photo retouching vs Photoshop",
+      "description": "Krita is built for painting, not photo retouching. It lacks Photoshop's content-aware fill, healing brush refinements, and photo-focused adjustment layers. For photo editing, GIMP is the closer match.",
+      "severity": "nuisance",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://docs.krita.org/en/user_manual/introduction.html",
+          "label": "Krita docs — introduction and scope",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    },
+    {
+      "slug": "no-plugin-ecosystem",
+      "label": "Smaller plugin ecosystem than Photoshop",
+      "description": "Krita supports Python plugins, but the ecosystem is a fraction of Photoshop's. Professional plugins (Nik, Topaz, etc.) have no Krita equivalents.",
+      "severity": "minor",
+      "basis": "claimed",
+      "sources": []
+    }
+  ],
+  "categories": ["image-editing"],
+  "replaces": ["adobe-photoshop"],
+  "verified": true,
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://invent.kde.org/graphics/krita",
+      "label": "KDE krita repository",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "probed"
+    },
+    {
+      "url": "https://krita.org",
+      "label": "Krita official site",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    }
+  ]
+}

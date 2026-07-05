@@ -1,0 +1,253 @@
+{
+  "slug": "notion",
+  "name": "Notion",
+  "brand": "Notion Labs",
+  "tagline": "All-in-one workspace for docs, wikis, and databases",
+  "description": "Notion is a block-based workspace combining documents, wikis, databases, and project management. It is the reference product for the 'second brain' and team knowledge base category, with a large template ecosystem and strong real-time collaboration.",
+  "category": "note-taking",
+  "secondaryCategories": [],
+  "pricingShape": "subscription",
+  "pricingNote": "Free tier with usage limits; paid tiers per-seat for teams. AI features billed separately.",
+  "workflows": [
+    {
+      "slug": "rich-text-editing",
+      "label": "Rich-text block editing",
+      "description": "Slash-command block editor with headings, lists, callouts, embeds, and inline formatting."
+    },
+    {
+      "slug": "database-views",
+      "label": "Database/table views",
+      "description": "Structured data as tables, boards, calendars, galleries — all views of the same underlying data."
+    },
+    {
+      "slug": "team-wiki",
+      "label": "Team wiki & sharing",
+      "description": "Hierarchical pages with permissions, sharing, and real-time multi-user editing."
+    },
+    {
+      "slug": "offline-access",
+      "label": "Offline access",
+      "description": "Read and edit without a network connection, syncing on reconnect."
+    },
+    {
+      "slug": "self-hosting",
+      "label": "Self-hosting",
+      "description": "Run the entire workspace on infrastructure you control, with no vendor data custody."
+    },
+    {
+      "slug": "export-import",
+      "label": "Export & import",
+      "description": "Bulk export to Markdown, HTML, CSV; import from Evernote, Google Docs, Confluence."
+    }
+  ],
+  "exportImport": {
+    "formats": ["Markdown", "HTML", "CSV"],
+    "apis": ["https://developers.notion.com/reference/intro"],
+    "note": "Export is available but bulk export of databases requires the API. Some block types do not round-trip cleanly to Markdown.",
+    "basis": "cited",
+    "sources": [
+      {
+        "url": "https://developers.notion.com/reference/intro",
+        "label": "Notion API reference",
+        "fetchedAt": "2026-07-04T00:00:00.000Z",
+        "basis": "cited"
+      }
+    ]
+  },
+  "rankedAlternatives": [
+    {
+      "altSlug": "appflowy",
+      "fit": "best-fit",
+      "note": "Closest Notion clone: block editor, database views, self-hostable. Best for users who want Notion's structure without the vendor lock-in.",
+      "workflowFit": [
+        {
+          "workflowSlug": "rich-text-editing",
+          "status": "supported",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://github.com/AppFlowy-IO/AppFlowy",
+              "label": "AppFlowy repo — editor features",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "probed"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "database-views",
+          "status": "supported",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://github.com/AppFlowy-IO/AppFlowy",
+              "label": "AppFlowy repo — database/grid support",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "probed"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "team-wiki",
+          "status": "partial",
+          "note": "Collaboration via AppFlowy Cloud; real-time co-editing less polished.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://appflowy.io/cloud",
+              "label": "AppFlowy Cloud — collaboration features",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "offline-access",
+          "status": "supported",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://appflowy.io",
+              "label": "AppFlowy — local-first storage",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "self-hosting",
+          "status": "supported",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://github.com/AppFlowy-IO/AppFlowy",
+              "label": "AppFlowy — self-hostable, AGPL-3.0",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "probed"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "export-import",
+          "status": "partial",
+          "note": "Markdown export supported; Notion-format import is partial.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.appflowy.io/docs/export",
+              "label": "AppFlowy docs — export formats",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "altSlug": "logseq",
+      "fit": "different-philosophy",
+      "note": "Outliner-first, local-first, file-based. Solves the 'own your notes' job differently — no databases, but stronger linking and offline. Best for personal knowledge graphs, not Notion-style team workspaces.",
+      "workflowFit": [
+        {
+          "workflowSlug": "rich-text-editing",
+          "status": "partial",
+          "note": "Outliner-based; block editing is list-first, not free-form page-first.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.logseq.com",
+              "label": "Logseq docs — outliner model",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "database-views",
+          "status": "missing",
+          "note": "No Notion-style database/table views. This is a design choice, not a gap.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.logseq.com/#/page/faq",
+              "label": "Logseq FAQ — design philosophy",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "team-wiki",
+          "status": "partial",
+          "note": "Self-hosted web instance possible; not designed for real-time team editing.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.logseq.com/#/page/web%20version",
+              "label": "Logseq docs — self-hosted web version",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "offline-access",
+          "status": "supported",
+          "note": "Local-first by design; files live on disk.",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://docs.logseq.com",
+              "label": "Logseq — local-first storage model",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "self-hosting",
+          "status": "supported",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://github.com/logseq/logseq",
+              "label": "Logseq — self-hostable, AGPL-3.0",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "probed"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "export-import",
+          "status": "supported",
+          "note": "Native Markdown and Org-mode; your data is already in portable format.",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://docs.logseq.com",
+              "label": "Logseq — file-based storage",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "verified": true,
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://www.notion.so",
+      "label": "Notion official site",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    },
+    {
+      "url": "https://www.notion.so/pricing",
+      "label": "Notion pricing page",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    }
+  ]
+}

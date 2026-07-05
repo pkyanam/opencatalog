@@ -1,0 +1,172 @@
+{
+  "slug": "gimp",
+  "name": "GIMP",
+  "tagline": "Layered raster editor for Linux, macOS, Windows",
+  "description": "GIMP (GNU Image Manipulation Program) is a cross-platform raster image editor for photo retouching, image composition, and graphic design. It is the most established FOSS alternative to Photoshop for general-purpose image editing.",
+  "repo": "https://gitlab.gnome.org/GNOME/gimp",
+  "homepage": "https://www.gimp.org",
+  "license": {
+    "slug": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "osiApproved": true,
+    "basis": "probed",
+    "sources": [
+      {
+        "url": "https://gitlab.gnome.org/GNOME/gimp/-/blob/master/COPYING",
+        "label": "COPYING in GNOME/gimp repo",
+        "fetchedAt": "2026-07-04T00:00:00.000Z",
+        "basis": "probed"
+      }
+    ]
+  },
+  "deployment": ["desktop"],
+  "platforms": ["macos", "windows", "linux"],
+  "installPaths": [
+    {
+      "kind": "download",
+      "platform": "macos",
+      "url": "https://www.gimp.org/downloads/",
+      "note": "DMG from gimp.org",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://www.gimp.org/downloads/",
+          "label": "GIMP official downloads",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "macos",
+      "command": "brew install --cask gimp",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://formulae.brew.sh/cask/gimp",
+          "label": "Homebrew cask: gimp",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "linux",
+      "command": "flatpak install flathub org.gimp.GIMP",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://flathub.org/apps/org.gimp.GIMP",
+          "label": "Flathub: org.gimp.GIMP",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "windows",
+      "command": "winget install GIMP.GIMP",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://winget.run/pkg/GIMP/GIMP",
+          "label": "winget: GIMP.GIMP",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    }
+  ],
+  "maturity": [
+    {
+      "kind": "repo-stars",
+      "value": 5200,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://gitlab.gnome.org/GNOME/gimp"
+    },
+    {
+      "kind": "last-release",
+      "value": "2026-03-01",
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://www.gimp.org/news/"
+    },
+    {
+      "kind": "contributor-count",
+      "value": 350,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://gitlab.gnome.org/GNOME/gimp/-/graphs/master"
+    }
+  ],
+  "knownGaps": [
+    {
+      "slug": "no-cmyk-native",
+      "label": "No native CMYK/prepress workflow",
+      "description": "GIMP does not natively support CMYK color separation for print production. A plugin (Separate+) exists but is not maintained to professional prepress standards. For print production, Krita with its color management is closer, but neither matches Photoshop's prepress pipeline.",
+      "severity": "blocking",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://www.gimp.org/docs/user-faq.html",
+          "label": "GIMP FAQ — CMYK support",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    },
+    {
+      "slug": "ui-density",
+      "label": "UI differs significantly from Photoshop",
+      "description": "GIMP's interface, naming, and shortcut model differ from Photoshop. Migrating users report a learning curve. A single-window mode exists but the mental model is distinct.",
+      "severity": "nuisance",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://www.gimp.org/docs/user-faq.html",
+          "label": "GIMP FAQ — switching from Photoshop",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    },
+    {
+      "slug": "no-raw-photo",
+      "label": "No built-in RAW photo processing",
+      "description": "GIMP does not process RAW camera files natively. It integrates with Darktable or RawTherapee via a plugin, but the workflow is two-app, not unified.",
+      "severity": "nuisance",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://www.gimp.org/docs/user-faq.html",
+          "label": "GIMP FAQ — RAW support",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    }
+  ],
+  "categories": ["image-editing"],
+  "replaces": ["adobe-photoshop"],
+  "verified": true,
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://gitlab.gnome.org/GNOME/gimp",
+      "label": "GNOME/gimp GitLab repository",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "probed"
+    },
+    {
+      "url": "https://www.gimp.org",
+      "label": "GIMP official site",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    }
+  ]
+}

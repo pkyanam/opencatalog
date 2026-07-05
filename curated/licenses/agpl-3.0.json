@@ -1,0 +1,35 @@
+{
+  "slug": "agpl-3.0",
+  "name": "GNU Affero General Public License v3.0",
+  "spdxId": "AGPL-3.0-only",
+  "osiApproved": true,
+  "permits": [
+    "commercial use",
+    "modification",
+    "distribution",
+    "patent grant"
+  ],
+  "requires": [
+    "disclose source code",
+    "include license and copyright notice",
+    "state changes to the code",
+    "distribute under the same license (copyleft)",
+    "offer source to users interacting over a network"
+  ],
+  "networkDeploymentNote": "AGPL-3.0 closes the GPL 'SaaS loophole'. If modified AGPL software is exposed to users over a network, those users must be offered the corresponding source code. This is the key difference from GPL-3.0.",
+  "practicalCallout": "If you self-host an AGPL-3.0 application for your team without modifying it, you are not obligated to share source. If you modify it and expose it over a network (even internally to employees or externally to customers), you may owe corresponding source to those users. Read the license text and seek counsel for your specific deployment before relying on this summary.",
+  "sources": [
+    {
+      "url": "https://www.gnu.org/licenses/agpl-3.0.html",
+      "label": "AGPL-3.0 full text (GNU.org)",
+      "basis": "cited"
+    },
+    {
+      "url": "https://opensource.org/licenses/AGPL-3.0",
+      "label": "OSI-approved license summary",
+      "basis": "cited"
+    }
+  ],
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0"
+}

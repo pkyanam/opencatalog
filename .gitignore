@@ -1,0 +1,31 @@
+# Reference project — studied for design, never tracked or shipped.
+_reference/
+
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+dist/
+.astro/
+
+# Env / secrets
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Cloudflare local state if we add Workers later
+.wrangler/
+
+# OS / editor cruft
+.DS_Store
+*.log
+
+# Playwright output
+playwright-report/
+test-results/
+
+# Bun test cache
+.bun/

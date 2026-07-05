@@ -1,0 +1,158 @@
+{
+  "slug": "logseq",
+  "name": "Logseq",
+  "tagline": "Local-first, outliner-style knowledge graph",
+  "description": "Logseq is a privacy-first, open-source knowledge base that works on top of your local Markdown and Org-mode files. It is outliner-based, supports bidirectional links, and stores data in plain text so you own your notes.",
+  "repo": "https://github.com/logseq/logseq",
+  "homepage": "https://logseq.com",
+  "license": {
+    "slug": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "osiApproved": true,
+    "basis": "probed",
+    "sources": [
+      {
+        "url": "https://github.com/logseq/logseq/blob/master/LICENSE.md",
+        "label": "LICENSE.md in logseq/logseq repo",
+        "fetchedAt": "2026-07-04T00:00:00.000Z",
+        "basis": "probed"
+      }
+    ]
+  },
+  "deployment": ["desktop", "self-hosted", "web-deployable"],
+  "platforms": ["macos", "windows", "linux", "ios", "android", "docker"],
+  "installPaths": [
+    {
+      "kind": "download",
+      "platform": "macos",
+      "url": "https://github.com/logseq/logseq/releases/latest",
+      "note": "DMG from GitHub releases",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://github.com/logseq/logseq/releases/latest",
+          "label": "Latest release assets",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "macos",
+      "command": "brew install --cask logseq",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://formulae.brew.sh/cask/logseq",
+          "label": "Homebrew cask: logseq",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "linux",
+      "command": "flatpak install flathub com.logseq.Logseq",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://flathub.org/apps/com.logseq.Logseq",
+          "label": "Flathub: com.logseq.Logseq",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "container",
+      "platform": "docker",
+      "command": "docker run -d -p 3000:3000 -v ./logseq:/home/logseq graphlogseq/logseq",
+      "note": "Self-hosted web instance. AGPL-3.0 — see license page for network deployment callout.",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://hub.docker.com/r/graphlogseq/logseq",
+          "label": "Docker Hub: graphlogseq/logseq",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    }
+  ],
+  "maturity": [
+    {
+      "kind": "repo-stars",
+      "value": 34000,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://github.com/logseq/logseq"
+    },
+    {
+      "kind": "last-release",
+      "value": "2026-05-15",
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://github.com/logseq/logseq/releases"
+    },
+    {
+      "kind": "contributor-count",
+      "value": 380,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://github.com/logseq/logseq/graphs/contributors"
+    }
+  ],
+  "knownGaps": [
+    {
+      "slug": "no-database-views",
+      "label": "No Notion-style database/table views",
+      "description": "Logseq is an outliner, not a structured-database tool. Notion's table, board, and calendar views of the same data have no direct equivalent. AppFlowy is the closer match for that workflow.",
+      "severity": "blocking",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://docs.logseq.com/#/page/faq",
+          "label": "Logseq FAQ — design philosophy",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    },
+    {
+      "slug": "mobile-sync",
+      "label": "Mobile sync requires iCloud/Syncthing/git",
+      "description": "Logseq stores notes as local files. Syncing between desktop and mobile requires a third-party sync solution (iCloud, Syncthing, or a git remote). There is no built-in cloud sync at the free tier.",
+      "severity": "nuisance",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://docs.logseq.com/#/page/sync",
+          "label": "Logseq docs — sync options",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    }
+  ],
+  "categories": ["note-taking"],
+  "replaces": ["notion"],
+  "verified": true,
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://github.com/logseq/logseq",
+      "label": "logseq/logseq GitHub repository",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "probed"
+    },
+    {
+      "url": "https://logseq.com",
+      "label": "Logseq official site",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    }
+  ]
+}

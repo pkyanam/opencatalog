@@ -1,0 +1,256 @@
+{
+  "slug": "adobe-photoshop",
+  "name": "Adobe Photoshop",
+  "brand": "Adobe",
+  "tagline": "Industry-standard raster image editor",
+  "description": "Photoshop is the dominant professional raster image editor for photo retouching, compositing, digital painting, and prepress. It defines the category and the workflow vocabulary most alternatives are measured against.",
+  "category": "image-editing",
+  "secondaryCategories": [],
+  "pricingShape": "subscription",
+  "pricingNote": "Subscription-only since 2013 (Creative Cloud). No perpetual license. Photography plan bundles with Lightroom.",
+  "workflows": [
+    {
+      "slug": "layered-raster-editing",
+      "label": "Layered raster editing",
+      "description": "Non-destructive layer-based editing with masks, adjustment layers, blend modes, and smart objects."
+    },
+    {
+      "slug": "raw-photo-processing",
+      "label": "RAW photo processing",
+      "description": "Camera Raw plugin for non-destructive RAW development with lens corrections and profiles."
+    },
+    {
+      "slug": "cmyk-prepress",
+      "label": "CMYK / prepress",
+      "description": "Native CMYK color separation, ICC profile management, and print-production tooling."
+    },
+    {
+      "slug": "digital-painting",
+      "label": "Digital painting & illustration",
+      "description": "Brush engine, pressure sensitivity, and illustration tooling."
+    },
+    {
+      "slug": "plugin-ecosystem",
+      "label": "Plugin ecosystem",
+      "description": "Large third-party plugin marketplace (Nik, Topaz, ON1, filter plugins)."
+    },
+    {
+      "slug": "batch-processing",
+      "label": "Batch processing & automation",
+      "description": "Actions, scripts, and batch processing for repetitive workflows."
+    }
+  ],
+  "exportImport": {
+    "formats": ["PSD", "TIFF", "JPEG", "PNG", "WebP", "HEIF"],
+    "apis": [],
+    "note": "PSD is a documented but proprietary format. Third-party tools support PSD import with varying fidelity.",
+    "basis": "cited",
+    "sources": [
+      {
+        "url": "https://helpx.adobe.com/photoshop/using/file-formats.html",
+        "label": "Adobe — supported file formats",
+        "fetchedAt": "2026-07-04T00:00:00.000Z",
+        "basis": "cited"
+      }
+    ]
+  },
+  "rankedAlternatives": [
+    {
+      "altSlug": "gimp",
+      "fit": "best-fit",
+      "note": "Closest general-purpose raster editor. Covers photo retouching, layered editing, and batch processing. Gaps in CMYK and RAW.",
+      "workflowFit": [
+        {
+          "workflowSlug": "layered-raster-editing",
+          "status": "supported",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.gimp.org/en/gimp-image-structure.html",
+              "label": "GIMP docs — layers and masks",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "raw-photo-processing",
+          "status": "missing",
+          "note": "No native RAW. Integrates with Darktable/RawTherapee via plugin.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://www.gimp.org/docs/user-faq.html",
+              "label": "GIMP FAQ — RAW support",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "cmyk-prepress",
+          "status": "missing",
+          "note": "No native CMYK. Separate+ plugin exists but is not production-grade.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://www.gimp.org/docs/user-faq.html",
+              "label": "GIMP FAQ — CMYK support",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "digital-painting",
+          "status": "partial",
+          "note": "Basic brush engine; not designed for painting. Krita is the closer match.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.gimp.org/en/gimp-tools-brush.html",
+              "label": "GIMP docs — brush tools",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "plugin-ecosystem",
+          "status": "partial",
+          "note": "Plugin system exists but ecosystem is a fraction of Photoshop's.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://www.gimp.org/plugins/",
+              "label": "GIMP — plugin registry",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "batch-processing",
+          "status": "supported",
+          "note": "Batch operations via Script-Fu and Python-Fu.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.gimp.org/en/gimp-scripting.html",
+              "label": "GIMP docs — scripting",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "altSlug": "krita",
+      "fit": "partial-fit",
+      "note": "Best for the painting and illustration subset of Photoshop's workflows. Strong color management including CMYK. Gaps in photo retouching and plugin ecosystem.",
+      "workflowFit": [
+        {
+          "workflowSlug": "layered-raster-editing",
+          "status": "supported",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.krita.org/en/user_manual/layers_masks.html",
+              "label": "Krita docs — layers and masks",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "raw-photo-processing",
+          "status": "missing",
+          "note": "Not a RAW processor. Use Darktable or RawTherapee alongside.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.krita.org/en/user_manual/introduction.html",
+              "label": "Krita docs — scope and introduction",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "cmyk-prepress",
+          "status": "partial",
+          "note": "CMYK support via color management; not a full prepress pipeline but closer than GIMP.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.krita.org/en/user_manual/color_management.html",
+              "label": "Krita docs — color management",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "digital-painting",
+          "status": "supported",
+          "note": "Krita's primary strength. Brush engine is professional-grade.",
+          "basis": "probed",
+          "sources": [
+            {
+              "url": "https://krita.org/en/features/",
+              "label": "Krita features — brush engine",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "plugin-ecosystem",
+          "status": "partial",
+          "note": "Python plugin support; small ecosystem.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.krita.org/en/user_manual/python_scripting.html",
+              "label": "Krita docs — Python scripting and plugins",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        },
+        {
+          "workflowSlug": "batch-processing",
+          "status": "partial",
+          "note": "Batch processing via Python plugins; not a first-class feature.",
+          "basis": "cited",
+          "sources": [
+            {
+              "url": "https://docs.krita.org/en/user_manual/python_scripting.html",
+              "label": "Krita docs — Python scripting for batch operations",
+              "fetchedAt": "2026-07-04T00:00:00.000Z",
+              "basis": "cited"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "verified": true,
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://www.adobe.com/products/photoshop.html",
+      "label": "Adobe Photoshop product page",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    },
+    {
+      "url": "https://www.adobe.com/creativecloud/photography/plan.html",
+      "label": "Adobe Photography plan pricing",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "image-editing",
+  "name": "Image editing & raster graphics",
+  "definition": "Tools for creating, editing, and processing raster images. Ranges from photo retouching to digital painting to prepress production.",
+  "primaryWorkflows": [
+    "layered raster editing",
+    "raw photo processing",
+    "cmyk/prepress",
+    "digital painting",
+    "mask & selection",
+    "plugin ecosystem",
+    "batch processing"
+  ],
+  "neighborCategories": ["vector-graphics", "photo-management"],
+  "paidProductSlugs": ["adobe-photoshop"],
+  "alternativeSlugs": ["gimp", "krita"],
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": []
+}

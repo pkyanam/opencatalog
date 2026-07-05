@@ -1,0 +1,20 @@
+{
+  "slug": "note-taking",
+  "name": "Note-taking & knowledge management",
+  "definition": "Tools for capturing, organizing, linking, and sharing notes, docs, and team knowledge. Ranges from personal wikis to team knowledge bases.",
+  "primaryWorkflows": [
+    "rich-text editing",
+    "wiki-style linking",
+    "database/table views",
+    "team collaboration",
+    "self-hosting",
+    "offline access",
+    "export/import"
+  ],
+  "neighborCategories": ["project-management", "design-collaboration"],
+  "paidProductSlugs": ["notion"],
+  "alternativeSlugs": ["logseq", "appflowy"],
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": []
+}

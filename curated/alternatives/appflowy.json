@@ -1,0 +1,137 @@
+{
+  "slug": "appflowy",
+  "name": "AppFlowy",
+  "tagline": "Notion-style workspace you can self-host",
+  "description": "AppFlowy is an open-source workspace for wikis, tasks, and databases that closely mirrors Notion's block-based editing and database views. It is built in Rust and Flutter, runs locally or self-hosted, and uses a local-first SQLite storage model.",
+  "repo": "https://github.com/AppFlowy-IO/AppFlowy",
+  "homepage": "https://appflowy.io",
+  "license": {
+    "slug": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "osiApproved": true,
+    "basis": "probed",
+    "sources": [
+      {
+        "url": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/LICENSE",
+        "label": "LICENSE in AppFlowy-IO/AppFlowy repo",
+        "fetchedAt": "2026-07-04T00:00:00.000Z",
+        "basis": "probed"
+      }
+    ]
+  },
+  "deployment": ["desktop", "self-hosted", "hosted-service"],
+  "platforms": ["macos", "windows", "linux", "ios", "android", "docker"],
+  "installPaths": [
+    {
+      "kind": "download",
+      "platform": "macos",
+      "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/latest",
+      "note": "DMG from GitHub releases",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/releases/latest",
+          "label": "Latest release assets",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "package-manager",
+      "platform": "linux",
+      "command": "flatpak install flathub io.appflowy.AppFlowy",
+      "basis": "probed",
+      "sources": [
+        {
+          "url": "https://flathub.org/apps/io.appflowy.AppFlowy",
+          "label": "Flathub: io.appflowy.AppFlowy",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "probed"
+        }
+      ]
+    },
+    {
+      "kind": "hosted",
+      "platform": "browser",
+      "url": "https://appflowy.cloud",
+      "note": "Official hosted cloud instance. The self-hostable software is AGPL-3.0; the cloud is a paid service.",
+      "basis": "cited",
+      "sources": [
+        {
+          "url": "https://appflowy.cloud",
+          "label": "AppFlowy Cloud",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "cited"
+        }
+      ]
+    }
+  ],
+  "maturity": [
+    {
+      "kind": "repo-stars",
+      "value": 58000,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://github.com/AppFlowy-IO/AppFlowy"
+    },
+    {
+      "kind": "last-release",
+      "value": "2026-06-20",
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://github.com/AppFlowy-IO/AppFlowy/releases"
+    },
+    {
+      "kind": "contributor-count",
+      "value": 420,
+      "probedAt": "2026-07-04T00:00:00.000Z",
+      "stale": false,
+      "source": "https://github.com/AppFlowy-IO/AppFlowy/graphs/contributors"
+    }
+  ],
+  "knownGaps": [
+    {
+      "slug": "collaboration-lag",
+      "label": "Real-time collaboration less mature than Notion",
+      "description": "AppFlowy supports collaboration via AppFlowy Cloud, but real-time multi-user editing is less polished than Notion's. For async team wikis it is sufficient; for live co-editing sessions, expect rougher edges.",
+      "severity": "nuisance",
+      "basis": "claimed",
+      "sources": [
+        {
+          "url": "https://github.com/AppFlowy-IO/AppFlowy/discussions",
+          "label": "AppFlowy discussions — collaboration threads",
+          "fetchedAt": "2026-07-04T00:00:00.000Z",
+          "basis": "claimed"
+        }
+      ]
+    },
+    {
+      "slug": "plugin-ecosystem",
+      "label": "Smaller plugin/template ecosystem",
+      "description": "Notion has a large marketplace of templates and integrations. AppFlowy's ecosystem is growing but significantly smaller at launch.",
+      "severity": "minor",
+      "basis": "claimed",
+      "sources": []
+    }
+  ],
+  "categories": ["note-taking"],
+  "replaces": ["notion"],
+  "verified": true,
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://github.com/AppFlowy-IO/AppFlowy",
+      "label": "AppFlowy-IO/AppFlowy GitHub repository",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "probed"
+    },
+    {
+      "url": "https://appflowy.io",
+      "label": "AppFlowy official site",
+      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "basis": "cited"
+    }
+  ]
+}

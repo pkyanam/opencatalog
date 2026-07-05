@@ -1,0 +1,33 @@
+{
+  "slug": "mpl-2.0",
+  "name": "Mozilla Public License v2.0",
+  "spdxId": "MPL-2.0",
+  "osiApproved": true,
+  "permits": [
+    "commercial use",
+    "modification",
+    "distribution",
+    "patent grant"
+  ],
+  "requires": [
+    "disclose source code of MPL-licensed files",
+    "include license and copyright notice",
+    "copyleft applies at the file level only"
+  ],
+  "networkDeploymentNote": "No network-deployment obligations. MPL-2.0 is a weak copyleft: modifications to MPL-licensed files must be shared under MPL, but you can combine them with proprietary code in a larger work.",
+  "practicalCallout": "MPL-2.0 sits between permissive (MIT) and strong copyleft (GPL). You can build a proprietary product that includes MPL-licensed files, but any changes you make to those specific files must be published under MPL. The file-level boundary makes it friendly for mixed codebases.",
+  "sources": [
+    {
+      "url": "https://www.mozilla.org/en-US/MPL/2.0/",
+      "label": "MPL-2.0 full text (Mozilla)",
+      "basis": "cited"
+    },
+    {
+      "url": "https://opensource.org/licenses/MPL-2.0",
+      "label": "OSI-approved license summary",
+      "basis": "cited"
+    }
+  ],
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0"
+}

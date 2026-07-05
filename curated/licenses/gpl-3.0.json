@@ -1,0 +1,34 @@
+{
+  "slug": "gpl-3.0",
+  "name": "GNU General Public License v3.0",
+  "spdxId": "GPL-3.0-only",
+  "osiApproved": true,
+  "permits": [
+    "commercial use",
+    "modification",
+    "distribution",
+    "patent grant"
+  ],
+  "requires": [
+    "disclose source code",
+    "include license and copyright notice",
+    "state changes to the code",
+    "distribute under the same license (copyleft)"
+  ],
+  "networkDeploymentNote": "Network deployment alone does not trigger GPL-3.0 distribution obligations. The copyleft triggers when you convey the software or a derivative to a third party.",
+  "practicalCallout": "If you modify GPL-3.0 software and distribute it, you must publish your modifications under GPL-3.0. Internal use and SaaS-style hosting (without distribution) do not require this. Use AGPL-3.0 instead if network deployment should trigger source-sharing.",
+  "sources": [
+    {
+      "url": "https://www.gnu.org/licenses/gpl-3.0.html",
+      "label": "GPL-3.0 full text (GNU.org)",
+      "basis": "cited"
+    },
+    {
+      "url": "https://opensource.org/licenses/GPL-3.0",
+      "label": "OSI-approved license summary",
+      "basis": "cited"
+    }
+  ],
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0"
+}

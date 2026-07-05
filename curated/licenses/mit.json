@@ -1,0 +1,27 @@
+{
+  "slug": "mit",
+  "name": "MIT License",
+  "spdxId": "MIT",
+  "osiApproved": true,
+  "permits": [
+    "commercial use",
+    "modification",
+    "distribution",
+    "sublicensing",
+    "private use"
+  ],
+  "requires": [
+    "include license and copyright notice"
+  ],
+  "networkDeploymentNote": "No network-deployment obligations. MIT is a permissive license with no copyleft and no source-disclosure requirement under any deployment model.",
+  "practicalCallout": "The most permissive widely-used license. You can use, modify, and distribute MIT-licensed software commercially without sharing your modifications. Just keep the copyright and license notice.",
+  "sources": [
+    {
+      "url": "https://opensource.org/licenses/MIT",
+      "label": "MIT License full text (OSI)",
+      "basis": "cited"
+    }
+  ],
+  "generatedAt": "2026-07-04T00:00:00.000Z",
+  "schemaVersion": "0.1.0"
+}
