@@ -142,15 +142,33 @@ A GitHub Action runs weekly to re-probe all curated records:
 | Component | Service |
 |-----------|---------|
 | Hosting | Vercel (static + serverless) |
-| KV store | Vercel KV (Redis) for submission queue |
+| Submission queue | Upstash Redis (free tier: 10k commands/day) |
 | CI/CD | GitHub Actions |
 | Domain | opencatalog.sh |
 
-### Vercel KV setup
+### Upstash Redis setup
 
-1. Create a KV store in the Vercel dashboard
-2. Link it to the project (env vars `KV_REST_API_URL` and `KV_REST_API_TOKEN` are auto-provisioned)
-3. Add the same vars as GitHub Actions secrets for the sync workflow
+The public submission API (`POST /api/submit`) stores entries in Upstash Redis. Without it, the API returns 503.
+
+1. **Create an Upstash Redis database** (free tier is enough):
+   - Go to [upstash.com](https://upstash.com) → Create database
+   - Or via Vercel: Dashboard → your project → Storage → Upstash (marketplace)
+   - Pick a region close to your Vercel deployment
+
+2. **Get your credentials**:
+   - In the Upstash dashboard, find the REST API section
+   - Copy `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`
+
+3. **Add to Vercel** (for the live API):
+   - Vercel dashboard → your project → Settings → Environment Variables
+   - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`
+   - Redeploy
+
+4. **Add to GitHub** (for the sync Action):
+   - GitHub repo → Settings → Secrets and variables → Actions
+   - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`
+
+After that, `POST /api/submit` works for anyone. Submissions land in Redis, the GitHub Action syncs them to PRs every 2 hours.
 
 ## License
 

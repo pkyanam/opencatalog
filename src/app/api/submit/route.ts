@@ -4,35 +4,42 @@
  * POST /api/submit
  *
  * Accepts a candidate entry from anyone — human, AI agent, scraper, or
- * community member. No bearer token required. Submissions are stored
- * in Vercel KV as "pending" entries, then synced to git by a scheduled
- * GitHub Action that creates PRs for review.
+ * community member. No auth required. Submissions are stored in Upstash
+ * Redis as "pending" entries, then synced to git by a scheduled GitHub
+ * Action that creates PRs for review.
  *
- * Rate limiting: IP-based, stored in KV. 10 submissions per IP per hour.
+ * Rate limiting: IP-based, stored in Redis. 10 submissions per IP per hour.
  *
  * Flow:
- *   POST /api/submit → validate → store in KV (pending:<id>)
+ *   POST /api/submit → validate → store in Redis (pending:<id>)
  *                      → return submission ID
  *
- *   GitHub Action (hourly) → pull pending entries from KV
- *                          → write to staging/ as candidate files
- *                          → create PR for review
- *                          → mark entries as "synced" in KV
+ *   GitHub Action (every 2 hours) → pull pending entries from Redis
+ *                                 → write to staging/ as candidate files
+ *                                 → create PR for review
+ *                                 → mark entries as "synced" in Redis
  *
- * Environment (auto-provisioned by Vercel when you create a KV store):
- *   KV_REST_API_URL — Vercel KV REST endpoint
- *   KV_REST_API_TOKEN — Vercel KV auth token
+ * Environment (provisioned when you create an Upstash Redis store):
+ *   UPSTASH_REDIS_REST_URL — Upstash Redis REST endpoint
+ *   UPSTASH_REDIS_REST_TOKEN — Upstash Redis auth token
  *
- * If KV is not configured, the endpoint returns 503 with instructions.
+ * If Redis is not configured, the endpoint returns 503 with instructions.
  */
 
-import { kv } from "@vercel/kv";
+import { Redis } from "@upstash/redis";
 import { Candidate, type Candidate as CandidateType } from "@/lib/candidate-schema";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 10;
 
 const RATE_LIMIT_PER_HOUR = 10;
+
+function getRedis(): Redis | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  return new Redis({ url, token });
+}
 
 // ─── Rate limiting ─────────────────────────────────────────────────────────
 
@@ -44,27 +51,16 @@ function getClientIp(request: Request): string {
   return "unknown";
 }
 
-async function checkRateLimit(ip: string): Promise<{ allowed: boolean; remaining: number }> {
-  const key = `ratelimit:submit:${ip}`;
-  const count = await kv.incr(key);
-  if (count === 1) {
-    await kv.expire(key, 3600); // 1 hour window
-  }
-  return {
-    allowed: count <= RATE_LIMIT_PER_HOUR,
-    remaining: Math.max(0, RATE_LIMIT_PER_HOUR - count),
-  };
-}
-
 // ─── POST: submit a candidate ──────────────────────────────────────────────
 
 export async function POST(request: Request): Promise<Response> {
-  // Check KV is configured
-  if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+  const redis = getRedis();
+  if (!redis) {
     return Response.json(
       {
         ok: false,
-        error: "KV not configured. Create a Vercel KV store and link it to this project.",
+        error:
+          "Redis not configured. Create an Upstash Redis store (via upstash.com or Vercel Storage marketplace) and set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN env vars.",
       },
       { status: 503 },
     );
@@ -72,17 +68,21 @@ export async function POST(request: Request): Promise<Response> {
 
   // Rate limit
   const ip = getClientIp(request);
-  const rateLimit = await checkRateLimit(ip);
-  if (!rateLimit.allowed) {
+  const rateLimitKey = `ratelimit:submit:${ip}`;
+  const count = await redis.incr(rateLimitKey);
+  if (count === 1) {
+    await redis.expire(rateLimitKey, 3600);
+  }
+  if (count > RATE_LIMIT_PER_HOUR) {
     return Response.json(
       {
         ok: false,
         error: `Rate limit exceeded. ${RATE_LIMIT_PER_HOUR} submissions per hour. Try again later.`,
-        remaining: 0,
       },
       { status: 429, headers: { "Retry-After": "3600" } },
     );
   }
+  const remaining = Math.max(0, RATE_LIMIT_PER_HOUR - count);
 
   // Parse body
   let body: unknown;
@@ -127,7 +127,7 @@ export async function POST(request: Request): Promise<Response> {
   const candidate = result.data;
 
   // Check for duplicate slug in pending queue
-  const existing = await kv.get(`pending:slug:${candidate.slug}`);
+  const existing = await redis.get(`pending:slug:${candidate.slug}`);
   if (existing) {
     return Response.json(
       { ok: false, error: `A pending submission already exists for slug "${candidate.slug}"` },
@@ -135,14 +135,11 @@ export async function POST(request: Request): Promise<Response> {
     );
   }
 
-  // Store in KV
+  // Store in Redis
   const submissionId = `sub_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-  const kvKey = `pending:${submissionId}`;
-
-  await kv.set(kvKey, JSON.stringify(candidate));
-  await kv.set(`pending:slug:${candidate.slug}`, submissionId);
-  // Add to the pending set for the sync script to enumerate
-  await kv.sadd("pending:queue", submissionId);
+  await redis.set(`pending:${submissionId}`, JSON.stringify(candidate));
+  await redis.set(`pending:slug:${candidate.slug}`, submissionId);
+  await redis.sadd("pending:queue", submissionId);
 
   return Response.json(
     {
@@ -151,7 +148,7 @@ export async function POST(request: Request): Promise<Response> {
       slug: candidate.slug,
       kind: candidate.kind,
       message: "Submission received and queued for review. It will appear as a GitHub PR after the next sync.",
-      rateLimit: { remaining: rateLimit.remaining - 1, limit: RATE_LIMIT_PER_HOUR },
+      rateLimit: { remaining: remaining - 1, limit: RATE_LIMIT_PER_HOUR },
     },
     { status: 201 },
   );
@@ -180,8 +177,8 @@ export async function GET(): Promise<Response> {
       "201": "Submission queued",
       "400": "Validation error",
       "429": "Rate limited",
-      "503": "KV not configured",
+      "503": "Redis not configured",
     },
-    flow: "POST → KV queue → GitHub Action syncs to staging/ → PR for review → enrich → promote → curated/",
+    flow: "POST -> Redis queue -> GitHub Action syncs to staging/ -> PR for review -> enrich -> promote -> curated/",
   });
 }
