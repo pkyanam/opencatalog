@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api.json", "/api.schema.json"],
     },
-    sitemap: "https://opencatalog.dev/sitemap.xml",
+    sitemap: "https://opencatalog.sh/sitemap.xml",
   };
 }

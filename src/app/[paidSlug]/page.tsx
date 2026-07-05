@@ -55,7 +55,7 @@ export default async function PaidProductPage({
   return (
     <div className="container">
       <nav className="crumb" aria-label="Breadcrumb">
-        <a href="/">opencatalog</a>
+        <a href="/">opencatalog.sh</a>
         <span className="sep">/</span>
         <span>{paid.slug}</span>
       </nav>

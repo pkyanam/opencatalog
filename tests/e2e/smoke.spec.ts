@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test.describe("OpenCatalog smoke", () => {
+test.describe("opencatalog.sh smoke", () => {
   test("homepage loads with hero and search", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator("h1")).toContainText("The map from paid software");
@@ -78,7 +78,7 @@ test.describe("OpenCatalog smoke", () => {
 
   test("about page explains trust model", async ({ page }) => {
     await page.goto("/about/");
-    await expect(page.locator("h1")).toContainText("About OpenCatalog");
+    await expect(page.locator("h1")).toContainText("About opencatalog.sh");
     await expect(page.locator("text=trust model")).toBeVisible();
     await expect(page.locator("text=for agents")).toBeVisible();
   });
@@ -111,7 +111,7 @@ test.describe("OpenCatalog smoke", () => {
   test("breadcrumbs render on detail pages", async ({ page }) => {
     await page.goto("/notion/");
     await expect(page.locator(".crumb")).toBeVisible();
-    await expect(page.locator(".crumb")).toContainText("opencatalog");
+    await expect(page.locator(".crumb")).toContainText("opencatalog.sh");
   });
 
   test("footer renders with api.json link", async ({ page }) => {

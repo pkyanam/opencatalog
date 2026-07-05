@@ -160,7 +160,7 @@ export function SearchPalette({ envelope }: { envelope: ApiEnvelope }) {
         type="button"
         className="search-trigger"
         onClick={() => setOpen(true)}
-        aria-label="Search OpenCatalog"
+        aria-label="Search opencatalog.sh"
       >
         <Search size={15} strokeWidth={1.5} />
         <span>Search paid products, FOSS tools, categories…</span>
@@ -171,7 +171,7 @@ export function SearchPalette({ envelope }: { envelope: ApiEnvelope }) {
         <div className="palette-overlay" onClick={() => setOpen(false)}>
           <Command
             className="palette"
-            label="Search OpenCatalog"
+            label="Search opencatalog.sh"
             shouldFilter={false}
             value=""
             onValueChange={() => {}}

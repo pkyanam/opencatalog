@@ -3,15 +3,15 @@ import { plexMono, plexSans } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://opencatalog.dev"),
+  metadataBase: new URL("https://opencatalog.sh"),
   title: {
-    default: "OpenCatalog — FOSS alternatives to paid software",
-    template: "%s · OpenCatalog",
+    default: "opencatalog.sh — FOSS alternatives to paid software",
+    template: "%s · opencatalog.sh",
   },
   description:
     "The map from paid software to serious FOSS alternatives. Every claim grounded, every install path verified, every gap labeled. Read the page or fetch /api.json.",
-  applicationName: "OpenCatalog",
-  authors: [{ name: "OpenCatalog" }],
+  applicationName: "opencatalog.sh",
+  authors: [{ name: "opencatalog.sh" }],
   generator: "Next.js",
   keywords: [
     "open source",
@@ -52,13 +52,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "OpenCatalog",
+    name: "opencatalog.sh",
     description:
       "The map from paid software to serious FOSS alternatives. Every claim grounded, every install path verified, every gap labeled.",
-    url: "https://opencatalog.dev",
+    url: "https://opencatalog.sh",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://opencatalog.dev/browse/?q={search_term_string}",
+      target: "https://opencatalog.sh/browse/?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -80,8 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="frame-guides" aria-hidden="true" />
         <nav className="site" aria-label="Primary">
           <div className="container">
-            <a href="/" className="wordmark" aria-label="OpenCatalog home">
-              opencatalog<span className="dot">.</span>
+            <a href="/" className="wordmark" aria-label="opencatalog.sh home">
+              opencatalog<span className="dot">.</span>sh
             </a>
             <div className="nav-spacer" />
             <a href="/browse/" className="nav-link">
@@ -99,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="site-footer">
           <div className="container">
             <p className="footer-mark">
-              opencatalog<span className="dot">.</span>{" "}
+              opencatalog<span className="dot">.</span>sh{" "}
               <span className="footer-note">
                 proof over listicles · every claim grounded ·{" "}
                 <a href="/api.json">/api.json</a>

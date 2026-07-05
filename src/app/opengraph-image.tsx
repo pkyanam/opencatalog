@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-export const alt = "OpenCatalog — FOSS alternatives to paid software";
+export const alt = "opencatalog.sh — FOSS alternatives to paid software";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const dynamic = "force-static";
@@ -45,7 +45,7 @@ export default async function OpengraphImage() {
           <span style={{ fontSize: 28, fontWeight: 600, letterSpacing: "-0.01em" }}>
             opencatalog
           </span>
-          <span style={{ fontSize: 28, color: "#6f9c2a" }}>.</span>
+          <span style={{ fontSize: 28, color: "#6f9c2a" }}>.sh</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ display: "flex", fontSize: 56, fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.03em" }}>
@@ -59,7 +59,7 @@ export default async function OpengraphImage() {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 22, color: "#7a7a7a" }}>
           <span>proof over listicles · every claim grounded</span>
-          <span>opencatalog /api.json</span>
+          <span>opencatalog.sh /api.json</span>
         </div>
       </div>
     ),

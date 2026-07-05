@@ -1,4 +1,4 @@
-# OpenCatalog - product plan
+# opencatalog.sh - product plan
 
 *Last updated: 2026-07-04. This doc captures the product shape and the path
 from empty repo to launch. It is the source of truth for what we're building
@@ -13,21 +13,21 @@ budget, and ten SEO landing pages, there is often a free, open-source tool that
 does 80-100% of the job - buried on GitHub, scattered across package managers,
 or known only to the forum thread that answered the question three years ago.
 
-OpenCatalog is the map from paid software to serious FOSS alternatives. Type a
+opencatalog.sh is the map from paid software to serious FOSS alternatives. Type a
 paid product, category, file format, or workflow and get the grounded answer:
 which FOSS tools are credible, what they replace, how to install them, what
 license obligations matter, how mature they are, and what gaps remain. The page
 a human reads and the JSON an agent fetches are generated from the same data.
 
 The product bet is **proof over listicles**. "10 free alternatives to
-Photoshop" is already solved and mostly low-trust. OpenCatalog should feel like
+Photoshop" is already solved and mostly low-trust. opencatalog.sh should feel like
 a field guide: fast, visual, opinionated, and inspectable. Every load-bearing
 claim is either probed from a live machine source or cited to a fetched source;
 everything else is visibly labeled as a claim.
 
 ## Product Feel
 
-OpenCatalog should not look like a generic SaaS directory. It should feel like
+opencatalog.sh should not look like a generic SaaS directory. It should feel like
 a cross between a terminal-native field manual, a software museum label, and a
 radar screen for escaping subscription software.
 
@@ -35,7 +35,7 @@ Design direction:
 
 - **Visual language**: ink, paper, chartreuse/accent green, muted amber for
   warnings, and steel-blue for agent/API surfaces. Keep the grayscale discipline
-  from the reference, but add a sharper OpenCatalog identity rather than
+  from the reference, but add a sharper opencatalog.sh identity rather than
   cloning integrations.sh.
 - **Typography**: use an expressive editorial sans for headlines plus a crisp
   mono for facts, slugs, commands, citations, and probe metadata. Avoid default
@@ -83,7 +83,7 @@ same grounded answer as JSON.
 - **`/browse/`** - the full catalog explorer. Client-side search and filters
   over the generated API payload: category, deployment shape, license family,
   platform, maturity, verified status, and source count.
-- **`/about/`** - the narrative and methodology. Explain why OpenCatalog
+- **`/about/`** - the narrative and methodology. Explain why opencatalog.sh
   exists, how grounding works, what `verified` means, and where the catalog is
   intentionally conservative.
 - **`/api.json`** - one envelope containing curated paid products, alternatives,
@@ -210,7 +210,7 @@ Raw quality score:
   clever branding.
 - The API is also distribution. FOSS recommenders, package-picker agents, and
   "find me a tool for X" prompts should be able to fetch `/api.json` and cite
-  OpenCatalog as the source of the mapping.
+  opencatalog.sh as the source of the mapping.
 
 ## Stack
 
@@ -221,7 +221,7 @@ Raw quality score:
 - **React 19** through the Next App Router default.
 - **TypeScript strict** throughout.
 - **Tailwind CSS 4** for styling. The official docs show v4.3 on 2026-07-04.
-  Use CSS variables for the OpenCatalog visual system instead of scattering
+  Use CSS variables for the opencatalog.sh visual system instead of scattering
   one-off utility colors.
 - **Bun** as package manager and script runner.
 - **Zod or Valibot** for schema validation, selected during scaffold. The
@@ -265,7 +265,7 @@ Raw quality score:
 
 - Which 6-10 seed paid products should launch first if we optimize for visual
   impact instead of search volume?
-- Should OpenCatalog accept "source available" tools in a separate excluded
+- Should opencatalog.sh accept "source available" tools in a separate excluded
   state, or omit them entirely until after launch?
 - Do we want a public contribution flow at launch as GitHub PR templates, or
   keep contributions private until the curated pipeline is stable?

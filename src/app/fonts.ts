@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 
 /*
- * OpenCatalog typography — IBM Plex family, mono-forward.
+ * opencatalog.sh typography — IBM Plex family, mono-forward.
  *
  * Plex Mono is the display/headline face (the "terminal field manual" signature)
  * and the facts/code/chips face. Plex Sans is the body/UI face. Both are OFL-1.1,

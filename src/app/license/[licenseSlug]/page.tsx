@@ -39,7 +39,7 @@ export default async function LicensePage({
   return (
     <div className="container">
       <nav className="crumb" aria-label="Breadcrumb">
-        <a href="/">opencatalog</a>
+        <a href="/">opencatalog.sh</a>
         <span className="sep">/</span>
         <span>license/{lic.slug}</span>
       </nav>

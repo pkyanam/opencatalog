@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * OpenCatalog — global design tokens + shared shell.
+ * opencatalog.sh — global design tokens + shared shell.
  *
  * Visual identity: terminal-native field manual, software museum label,
  * radar screen for escaping subscriptions. Ink, paper, chartreuse accent,
@@ -475,7 +475,7 @@ code {
   50% { opacity: 0.4; }
 }
 
-/* Headlines — Plex Mono at display size is the OpenCatalog signature */
+/* Headlines — Plex Mono at display size is the opencatalog.sh signature */
 h1, h2, h3 {
   font-family: var(--font-mono);
   font-weight: 600;

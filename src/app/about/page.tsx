@@ -1,23 +1,23 @@
 import { SCHEMA_VERSION } from "@/lib/schema";
 
 export const metadata = {
-  title: "About OpenCatalog",
-  description: "Why OpenCatalog exists, how it works, and what its trust model is.",
+  title: "About opencatalog.sh",
+  description: "Why opencatalog.sh exists, how it works, and what its trust model is.",
 };
 
 export default function AboutPage() {
   return (
     <div className="container">
       <nav className="crumb" aria-label="Breadcrumb">
-        <a href="/">opencatalog</a>
+        <a href="/">opencatalog.sh</a>
         <span className="sep">/</span>
         <span>about</span>
       </nav>
 
       <section className="paid-hero">
-        <h1>About OpenCatalog</h1>
+        <h1>About opencatalog.sh</h1>
         <p className="paid-desc">
-          OpenCatalog is a map from paid software to serious FOSS alternatives. Every claim
+          opencatalog.sh is a map from paid software to serious FOSS alternatives. Every claim
           is grounded, every install path is verified, every gap is labeled. The page you
           read and the JSON an agent fetches are the same content.
         </p>
@@ -35,7 +35,7 @@ export default function AboutPage() {
             doesn&apos;t work. They don&apos;t tell you how to install anything.
           </p>
           <p>
-            OpenCatalog is the opposite: a field manual. Each paid product page is a switch
+            opencatalog.sh is the opposite: a field manual. Each paid product page is a switch
             map — a grid of workflows × alternatives, with every cell grounded in a source
             you can click. Each alternative page lists install paths, maturity signals, and
             known gaps. Every record carries a freshness timestamp and a verification badge.
@@ -94,7 +94,7 @@ export default function AboutPage() {
         </div>
         <div className="prose" style={{ marginTop: 14 }}>
           <p>
-            At launch, OpenCatalog is a curated seed. There is no public contribution UI,
+            At launch, opencatalog.sh is a curated seed. There is no public contribution UI,
             no raw-feed normalizer, no community submission flow. Those are post-launch.
             The curated records in <code>curated/</code> are hand-written against a Zod
             schema and validated in CI.

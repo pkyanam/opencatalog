@@ -1,4 +1,4 @@
-# OpenCatalog - vocabulary
+# opencatalog.sh - vocabulary
 
 Working definitions. These terms appear in URLs, navigation, schema fields,
 generated content, and page copy. `PLAN.md` explains product direction; this

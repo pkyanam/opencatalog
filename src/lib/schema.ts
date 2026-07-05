@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 /*
- * OpenCatalog — Zod schema (source of truth).
+ * opencatalog.sh — Zod schema (source of truth).
  *
  * Every rule here encodes a contract from DEFINITIONS.md or PLAN.md:
  * - Every load-bearing fact carries a `basis`: probed | cited | claimed.

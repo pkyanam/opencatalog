@@ -2,7 +2,7 @@ import { buildApiEnvelope } from "@/lib/data";
 
 export const metadata = {
   title: "Browse the catalog",
-  description: "All paid products, FOSS alternatives, categories, and licenses in OpenCatalog.",
+  description: "All paid products, FOSS alternatives, categories, and licenses in opencatalog.sh.",
 };
 
 export default async function BrowsePage() {
@@ -11,7 +11,7 @@ export default async function BrowsePage() {
   return (
     <div className="container">
       <nav className="crumb" aria-label="Breadcrumb">
-        <a href="/">opencatalog</a>
+        <a href="/">opencatalog.sh</a>
         <span className="sep">/</span>
         <span>browse</span>
       </nav>
