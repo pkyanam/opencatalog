@@ -44,6 +44,9 @@ const reservedSlugs = [
   "about",
   "api.json",
   "api.schema.json",
+  "agents.md",
+  "skills.md",
+  "llms.txt",
 ];
 
 export { reservedSlugs };

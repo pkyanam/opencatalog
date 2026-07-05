@@ -171,16 +171,25 @@ export default async function PaidProductPage({
         <p>
           The entire catalog — including this paid product and all its ranked alternatives —
           is available at <code>/api.json</code>. Filter client-side by{" "}
-          <code>paidProducts[].slug === &quot;{paid.slug}&quot;</code>.
+          <code>paidProducts[].slug === &quot;{paid.slug}&quot;</code>, or fetch this record
+          directly at <code>/api/paid/{paid.slug}</code>. See{" "}
+          <a href="/agents.md"><code>/agents.md</code></a> for the full agent guide.
         </p>
         <div className="agent-endpoints">
           <div className="agent-endpoint">
             <span className="agent-method">GET</span>
-            <a href="/api.json" className="agent-url">/api.json</a>
+            <a href={`/api/paid/${paid.slug}`} className="agent-url">/api/paid/{paid.slug}</a>
+            <span className="sec-note">— this record as JSON</span>
           </div>
           <div className="agent-endpoint">
             <span className="agent-method">GET</span>
-            <a href="/api.schema.json" className="agent-url">/api.schema.json</a>
+            <a href="/api.json" className="agent-url">/api.json</a>
+            <span className="sec-note">— full envelope</span>
+          </div>
+          <div className="agent-endpoint">
+            <span className="agent-method">GET</span>
+            <a href="/agents.md" className="agent-url">/agents.md</a>
+            <span className="sec-note">— agent guide</span>
           </div>
         </div>
       </section>

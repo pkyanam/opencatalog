@@ -81,6 +81,14 @@ export default function AboutPage() {
             <code>{SCHEMA_VERSION}</code>.
           </p>
           <p>
+            The full agent guide — every endpoint, every available slug, the schema
+            reference, the trust model, and the submission flow — is at{" "}
+            <a href="/agents.md"><code>/agents.md</code></a> (and{" "}
+            <a href="/skills.md"><code>/skills.md</code></a>, the same content re-framed as
+            agent capabilities). An <a href="/llms.txt"><code>/llms.txt</code></a> pointer
+            is also available at the site root.
+          </p>
+          <p>
             Agents can fetch the envelope, validate against the schema, and reason about
             FOSS alternatives without scraping HTML. The JSON and the HTML are generated
             from the same curated records — there is no separate API model.

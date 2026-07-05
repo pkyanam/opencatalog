@@ -87,9 +87,15 @@ export default async function HomePage() {
         <p>
           Every record on this site is also available as a static JSON envelope and a
           JSON Schema document. Fetch the envelope, validate against the schema, and
-          reason about FOSS alternatives without scraping HTML.
+          reason about FOSS alternatives without scraping HTML. See{" "}
+          <a href="/agents.md"><code>/agents.md</code></a> for the full agent guide.
         </p>
         <div className="agent-endpoints">
+          <div className="agent-endpoint">
+            <span className="agent-method">GET</span>
+            <a href="/agents.md" className="agent-url">/agents.md</a>
+            <span className="sec-note">— agent guide (endpoints, schema, submission)</span>
+          </div>
           <div className="agent-endpoint">
             <span className="agent-method">GET</span>
             <a href="/api.json" className="agent-url">/api.json</a>

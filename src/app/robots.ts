@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api.json", "/api.schema.json"],
+      disallow: ["/api.json", "/api.schema.json", "/api/paid/", "/api/alt/", "/api/category/", "/api/license/"],
     },
     sitemap: "https://www.opencatalog.sh/sitemap.xml",
   };

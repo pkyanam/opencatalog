@@ -279,4 +279,7 @@ export const RESERVED_SLUGS = [
   "api",
   "api.json",
   "api.schema.json",
+  "agents.md",
+  "skills.md",
+  "llms.txt",
 ] as const;
