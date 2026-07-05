@@ -1,0 +1,50 @@
+{
+  "kind": "paid-product",
+  "slug": "obsidian",
+  "name": "Obsidian",
+  "tagline": "A knowledge base that works on local Markdown files",
+  "description": "Obsidian is a note-taking app that stores notes as local Markdown files. The app itself is free for personal use, but commercial use requires a Catalyst or Commercial license. It supports plugins, themes, and linking between notes to build a personal knowledge graph.",
+  "category": "note-taking",
+  "secondaryCategories": [],
+  "pricingShape": "freemium",
+  "pricingNote": "Free for personal use. Commercial license required for business use (2+ users).",
+  "workflows": [
+    {
+      "slug": "note-creation",
+      "label": "Note creation"
+    },
+    {
+      "slug": "linking",
+      "label": "Note linking and graph view"
+    },
+    {
+      "slug": "plugins",
+      "label": "Plugin ecosystem"
+    },
+    {
+      "slug": "sync",
+      "label": "Cross-device sync"
+    }
+  ],
+  "rankedAlternativeSlugs": [
+    "logseq",
+    "appflowy"
+  ],
+  "sources": [
+    {
+      "url": "https://obsidian.md/pricing",
+      "label": "Obsidian pricing page",
+      "basis": "claimed"
+    },
+    {
+      "url": "https://obsidian.md/license",
+      "label": "Obsidian license terms",
+      "basis": "claimed"
+    }
+  ],
+  "submitter": {
+    "source": "manual",
+    "identity": "pkyanam",
+    "submittedAt": "2026-07-05T01:43:16.227Z"
+  }
+}
