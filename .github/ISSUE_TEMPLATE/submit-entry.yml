@@ -1,0 +1,95 @@
+name: Submit a new entry
+description: Propose a new paid product, FOSS alternative, category, or license for the catalog
+title: "[Entry]: "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to opencatalog.sh! Fill out the form below to
+        propose a new entry. A maintainer will review and add it to the catalog.
+
+        Prefer the CLI? You can also submit via:
+        ```
+        bun run add-entry --kind alternative --slug my-tool --name "My Tool"
+        ```
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Entry type
+      options:
+        - FOSS alternative (a free/open-source tool)
+        - Paid product (proprietary software to find alternatives for)
+        - Category
+        - License
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: The display name (e.g. "Logseq", "Adobe Photoshop")
+    validations:
+      required: true
+  - type: input
+    id: slug
+    attributes:
+      label: Slug
+      description: URL-friendly identifier (e.g. "logseq", "adobe-photoshop")
+    validations:
+      required: true
+  - type: input
+    id: tagline
+    attributes:
+      label: Tagline
+      description: One-line summary
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What this tool/product is and what it does
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License (for FOSS alternatives)
+      description: SPDX ID (e.g. AGPL-3.0, MIT, GPL-3.0)
+    validations:
+      required: false
+  - type: input
+    id: repo
+    attributes:
+      label: Repository URL
+      description: GitHub/GitLab/Codeberg URL
+    validations:
+      required: false
+  - type: input
+    id: website
+    attributes:
+      label: Website / homepage
+    validations:
+      required: false
+  - type: textarea
+    id: replaces
+    attributes:
+      label: Replaces (for FOSS alternatives)
+      description: Which paid products does this replace? (comma-separated names)
+    validations:
+      required: false
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: URLs that support the claims above (docs, license page, install instructions)
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Anything else the maintainer should know
+    validations:
+      required: false

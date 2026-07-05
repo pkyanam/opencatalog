@@ -50,6 +50,7 @@
     "playwright-report",
     "test-results",
     "tests",
-    "playwright.config.ts"
+    "playwright.config.ts",
+    "scripts"
   ]
 }

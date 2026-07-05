@@ -1,0 +1,95 @@
+{
+  "slug": "joplin",
+  "name": "Joplin",
+  "tagline": "Open-source note-taking and to-do app with synchronization",
+  "description": "Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. It supports Markdown, end-to-end encryption, and syncs via Joplin Cloud, Nextcloud, Dropbox, OneDrive, or WebDAV.",
+  "repo": "https://github.com/laurent22/joplin",
+  "homepage": "https://joplinapp.org",
+  "license": {
+    "slug": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "osiApproved": true,
+    "basis": "claimed",
+    "sources": [
+      {
+        "url": "https://www.gnu.org/licenses/agpl-3.0.html",
+        "label": "AGPL-3.0 full text (GNU.org)",
+        "basis": "cited"
+      },
+      {
+        "url": "https://opensource.org/licenses/AGPL-3.0",
+        "label": "OSI-approved license summary",
+        "basis": "cited"
+      }
+    ]
+  },
+  "deployment": [
+    "desktop",
+    "desktop",
+    "self-hosted"
+  ],
+  "platforms": [],
+  "installPaths": [
+    {
+      "kind": "package-manager",
+      "platform": "macos",
+      "command": "brew install --cask joplin",
+      "basis": "cited",
+      "sources": []
+    },
+    {
+      "kind": "package-manager",
+      "platform": "linux",
+      "command": "flatpak install flathub net.cozic.joplin_desktop",
+      "basis": "cited",
+      "sources": []
+    }
+  ],
+  "maturity": [
+    {
+      "kind": "repo-stars",
+      "value": "55431",
+      "probedAt": "2026-07-05T00:49:39.464Z",
+      "stale": false
+    },
+    {
+      "kind": "last-release",
+      "value": "v3.6.15",
+      "probedAt": "2026-07-05T00:49:39.464Z",
+      "stale": false
+    }
+  ],
+  "knownGaps": [
+    {
+      "slug": "no-realtime-collab",
+      "label": "No real-time collaboration",
+      "description": "Joplin does not support real-time collaborative editing. Notes sync via file-based sync targets, not live co-editing.",
+      "severity": "minor",
+      "basis": "claimed",
+      "sources": []
+    }
+  ],
+  "categories": [
+    "note-taking"
+  ],
+  "replaces": [
+    "notion"
+  ],
+  "verified": false,
+  "generatedAt": "2026-07-05T00:50:40.673Z",
+  "schemaVersion": "0.1.0",
+  "sources": [
+    {
+      "url": "https://github.com/laurent22/joplin",
+      "label": "Joplin GitHub repository",
+      "fetchedAt": "2026-07-05T00:49:38.799Z",
+      "basis": "cited"
+    },
+    {
+      "url": "https://joplinapp.org",
+      "label": "Joplin official website",
+      "fetchedAt": "2026-07-05T00:49:38.799Z",
+      "basis": "cited"
+    }
+  ]
+}
