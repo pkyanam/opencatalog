@@ -41,7 +41,14 @@
     }
   ],
   "exportImport": {
-    "formats": ["PSD", "TIFF", "JPEG", "PNG", "WebP", "HEIF"],
+    "formats": [
+      "PSD",
+      "TIFF",
+      "JPEG",
+      "PNG",
+      "WebP",
+      "HEIF"
+    ],
     "apis": [],
     "note": "PSD is a documented but proprietary format. Third-party tools support PSD import with varying fidelity.",
     "basis": "cited",
@@ -243,7 +250,7 @@
     {
       "url": "https://www.adobe.com/products/photoshop.html",
       "label": "Adobe Photoshop product page",
-      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "fetchedAt": "2026-07-27T12:44:34.742Z",
       "basis": "cited"
     },
     {
