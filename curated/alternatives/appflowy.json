@@ -19,8 +19,19 @@
       }
     ]
   },
-  "deployment": ["desktop", "self-hosted", "hosted-service"],
-  "platforms": ["macos", "windows", "linux", "ios", "android", "docker"],
+  "deployment": [
+    "desktop",
+    "self-hosted",
+    "hosted-service"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux",
+    "ios",
+    "android",
+    "docker"
+  ],
   "installPaths": [
     {
       "kind": "download",
@@ -70,15 +81,15 @@
   "maturity": [
     {
       "kind": "repo-stars",
-      "value": 58000,
-      "probedAt": "2026-07-04T00:00:00.000Z",
+      "value": "75904",
+      "probedAt": "2026-08-24T10:19:47.512Z",
       "stale": false,
       "source": "https://github.com/AppFlowy-IO/AppFlowy"
     },
     {
       "kind": "last-release",
-      "value": "2026-06-20",
-      "probedAt": "2026-07-04T00:00:00.000Z",
+      "value": "0.13.2",
+      "probedAt": "2026-08-24T10:19:47.512Z",
       "stale": false,
       "source": "https://github.com/AppFlowy-IO/AppFlowy/releases"
     },
@@ -115,8 +126,12 @@
       "sources": []
     }
   ],
-  "categories": ["note-taking"],
-  "replaces": ["notion"],
+  "categories": [
+    "note-taking"
+  ],
+  "replaces": [
+    "notion"
+  ],
   "verified": true,
   "generatedAt": "2026-07-04T00:00:00.000Z",
   "schemaVersion": "0.1.0",
@@ -124,13 +139,13 @@
     {
       "url": "https://github.com/AppFlowy-IO/AppFlowy",
       "label": "AppFlowy-IO/AppFlowy GitHub repository",
-      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "fetchedAt": "2026-08-24T10:19:45.635Z",
       "basis": "probed"
     },
     {
       "url": "https://appflowy.io",
       "label": "AppFlowy official site",
-      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "fetchedAt": "2026-08-24T10:19:45.635Z",
       "basis": "cited"
     }
   ]

@@ -48,14 +48,14 @@
   "maturity": [
     {
       "kind": "repo-stars",
-      "value": "55431",
-      "probedAt": "2026-07-05T00:49:39.464Z",
+      "value": "56076",
+      "probedAt": "2026-08-24T10:19:42.695Z",
       "stale": false
     },
     {
       "kind": "last-release",
-      "value": "v3.6.15",
-      "probedAt": "2026-07-05T00:49:39.464Z",
+      "value": "v3.6.16",
+      "probedAt": "2026-08-24T10:19:42.695Z",
       "stale": false
     }
   ],
@@ -82,13 +82,13 @@
     {
       "url": "https://github.com/laurent22/joplin",
       "label": "Joplin GitHub repository",
-      "fetchedAt": "2026-07-05T00:49:38.799Z",
+      "fetchedAt": "2026-08-24T10:19:41.908Z",
       "basis": "cited"
     },
     {
       "url": "https://joplinapp.org",
       "label": "Joplin official website",
-      "fetchedAt": "2026-07-05T00:49:38.799Z",
+      "fetchedAt": "2026-08-24T10:19:41.908Z",
       "basis": "cited"
     }
   ]
