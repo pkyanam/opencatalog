@@ -42,14 +42,14 @@
   "maturity": [
     {
       "kind": "repo-stars",
-      "value": "54985",
-      "probedAt": "2026-07-05T03:49:35.121Z",
+      "value": "59428",
+      "probedAt": "2026-08-31T17:12:41.731Z",
       "stale": false
     },
     {
       "kind": "last-release",
-      "value": "2.16.2",
-      "probedAt": "2026-07-05T03:49:35.121Z",
+      "value": "2.17.2",
+      "probedAt": "2026-08-31T17:12:41.731Z",
       "stale": false
     }
   ],
@@ -76,13 +76,13 @@
     {
       "url": "https://penpot.app/",
       "label": "Penpot official",
-      "fetchedAt": "2026-07-05T03:49:34.312Z",
+      "fetchedAt": "2026-08-31T17:12:40.441Z",
       "basis": "cited"
     },
     {
       "url": "https://github.com/penpot/penpot",
       "label": "GitHub repo",
-      "fetchedAt": "2026-07-05T03:49:34.312Z",
+      "fetchedAt": "2026-08-31T17:12:40.441Z",
       "basis": "cited"
     }
   ]
