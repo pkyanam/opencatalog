@@ -19,8 +19,19 @@
       }
     ]
   },
-  "deployment": ["desktop", "self-hosted", "web-deployable"],
-  "platforms": ["macos", "windows", "linux", "ios", "android", "docker"],
+  "deployment": [
+    "desktop",
+    "self-hosted",
+    "web-deployable"
+  ],
+  "platforms": [
+    "macos",
+    "windows",
+    "linux",
+    "ios",
+    "android",
+    "docker"
+  ],
   "installPaths": [
     {
       "kind": "download",
@@ -84,15 +95,15 @@
   "maturity": [
     {
       "kind": "repo-stars",
-      "value": 34000,
-      "probedAt": "2026-07-04T00:00:00.000Z",
+      "value": "44813",
+      "probedAt": "2026-09-07T15:11:15.789Z",
       "stale": false,
       "source": "https://github.com/logseq/logseq"
     },
     {
       "kind": "last-release",
-      "value": "2026-05-15",
-      "probedAt": "2026-07-04T00:00:00.000Z",
+      "value": "2.0.1",
+      "probedAt": "2026-09-07T15:11:15.789Z",
       "stale": false,
       "source": "https://github.com/logseq/logseq/releases"
     },
@@ -136,8 +147,12 @@
       ]
     }
   ],
-  "categories": ["note-taking"],
-  "replaces": ["notion"],
+  "categories": [
+    "note-taking"
+  ],
+  "replaces": [
+    "notion"
+  ],
   "verified": true,
   "generatedAt": "2026-07-04T00:00:00.000Z",
   "schemaVersion": "0.1.0",
@@ -145,13 +160,13 @@
     {
       "url": "https://github.com/logseq/logseq",
       "label": "logseq/logseq GitHub repository",
-      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "fetchedAt": "2026-09-07T15:11:15.161Z",
       "basis": "probed"
     },
     {
       "url": "https://logseq.com",
       "label": "Logseq official site",
-      "fetchedAt": "2026-07-04T00:00:00.000Z",
+      "fetchedAt": "2026-09-07T15:11:15.161Z",
       "basis": "cited"
     }
   ]
